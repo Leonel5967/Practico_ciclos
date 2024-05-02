@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="asset/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                serie fibonasi
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-2">
+                        <input class="form-control btn btn-outline-success" type="button" id="boton" value="Presioname">
+                    </div>
+                    <div class="col-5">
+                        <input class="form-control" type="number" name="" placeholder="ingresar cantidad de columnas" id="cols" value="5">
+                    </div>
+                    <div class="col-5">
+                        <input class="form-control" type="number" name="" placeholder="ingresar cantidad de numeros" id="numero" value="10">
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                Resultado
+            </div>
+            <table class="table table-bordered table-hover table-striped">
+                <tbody id="tabla">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="asset/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            function fibonasi(N,K){
+                let L=-1
+                let A=1
+                let C=L+A
+                for (let i = 1; i <= Math.floor(N/K); i++) {
+                    console.log(K);
+                    fila=$("<tr id='fila'"+i+">")
+                        for (let D = 1; D <= K; D++) {
+                            $(fila).append("<td>"+C+"</td>")
+                            L=A+1
+                            A=L+2
+                            C=L+A
+                        }
+                        $("#tabla").append(fila)
+                }
+            }
+            $("#boton").on("click",function(){
+                // console.log("me electrocutaste pedrito")
+                N=$("#numero").val()
+                K=$("#cols").val()
+                
+                $("#tabla").empty()
+                fibonasi(N,K)
+            })
+        })
+    </script>
+</body>
+</html>

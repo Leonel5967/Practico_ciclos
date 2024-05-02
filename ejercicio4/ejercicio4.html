@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                ciclos
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-2">
+                        <input class="btn btn-secondary" type="button" id="boton" value="Boton">
+                    </div>
+                    <div class="col-5">
+                        <input class="form-control" type="number" name="" id="numero">
+                    </div>
+                    <div class="col-5">
+                        <input class="form-control" type="number" name="" id="cols">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                resultado
+            </div>
+            <div class="card-body">
+                <table class="table table-hover table-bordered table-striped">
+                    <tbody id="cuerpotabla">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            function ciclo4(n,cols){
+                let L=3
+                for (let i = 0; i <= Math.floor(N/cols); i++) {
+                    fila=$("<tr id='fila'"+i+">")
+                        for (let K = 0; K <=cols; K++) {
+                            fila.append("<td>"+L+"</td>")
+                            L=L+3
+                        }
+                        $("#cuerpotabla").append(fila)
+                }
+            }
+            $("#boton").on("click",function(){
+                N=$("#numero").val()
+                $("#cuerpotabla").empty()
+                ciclo4(N,$("#cols").val())
+            })
+        })
+    </script>
+</body>
+</html>
